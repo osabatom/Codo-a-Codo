@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Pelota - Merchandising</title>
+    <link rel="stylesheet" href="css/merchandising.css">
+    <script>
+
+        // Objeto para mantener el conteo de cada producto agregado al carrito
+        let carrito = {
+            producto1: 0,
+            producto2: 0,
+            producto3: 0
+        };
+    
+        function agregarAlCarrito(producto) {
+            // Agrega la cantidad seleccionada del producto al carrito
+            alert(`Agregaste ${carrito[producto]} unidad(es) del Producto ${producto} al carrito.`);
+        }
+
+        function modificarCantidad(producto, cambio) {
+            // Modifica la cantidad del producto y previene valores negativos
+            carrito[producto] = Math.max(0, carrito[producto] + cambio);
+    
+            // Actualiza el texto del contador en la nueva columna
+            document.getElementById('count_' + producto).textContent = carrito[producto];
+        }
+
+
+        function mostrarCarrito() {
+            // Compilamos el resumen del carrito
+            let resumen = "Contenido del Carrito:\n";
+            for (let producto in carrito) {
+                resumen += `${producto}: ${carrito[producto]} unidades\n`;
+            }
+            alert(resumen);
+        }
+
+        function agregarAlCarrito(producto) {
+            // Obtiene el talle seleccionado para el producto
+            let talleSeleccionado = document.getElementById('talle_' + producto).value;
+            // Agrega la cantidad seleccionada del producto al carrito
+            alert(`Agregaste ${carrito[producto]} unidad(es) del Producto ${producto} con talle ${talleSeleccionado} al carrito.`);
+        }
+        
+    </script>
+</head>
+<body>
+
+<h1>¿Bancás nuestra marca? ¡Apoyanos!</h1>
+<h3>Compranos un café</h3>
+<p><a href="https://www.google.com" target="_blank" rel="noopener">Buy me a coffee</a></p>
+
+<h3>Merchandising</h3>
+
+<button id="verCarrito" onclick="mostrarCarrito()">Ver Carrito</button>
+
+<table>
+<tr>
+    <th>Imagen</th>
+    <th>Descripción</th> 
+    <th>Talle</th> 
+    <th>Acción</th>
+    <th>Cantidad</th>
+</tr>
+<tr>
+    <td><img src="img/producto1.jpg" alt="producto1"></td>
+    <td>Descripción del producto 1</td>
+    <td>
+        <label for="talle_producto1" class="visually-hidden">Talle:</label>
+        <select id="talle_producto1">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
+    </td>
+    <td><button onclick="agregarAlCarrito('producto1')">Agregar al carrito</button></td> 
+    <td class="count-controls">
+        <button onclick="modificarCantidad('producto1', -1)">-</button>
+        <span id="count_producto1" class="count">0</span>
+        <button onclick="modificarCantidad('producto1', 1)">+</button>
+    </td>
+</tr>
+<tr>
+    <td><img src="img/producto2.jpg" alt="producto2"></td>
+    <td>Descripción del producto 2</td>
+    <td>
+        <label for="talle_producto2" class="visually-hidden">Talle:</label>
+        <select id="talle_producto2">
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
+    </td>
+    <td><button onclick="agregarAlCarrito('producto2')">Agregar al carrito</button></td>
+    <td class="count-controls">
+        <button onclick="modificarCantidad('producto2', -1)">-</button>
+        <span id="count_producto2" class="count">0</span>
+        <button onclick="modificarCantidad('producto2', 1)">+</button>
+    </td>
+</tr>
+<tr>
+    <td><img src="img/producto3.jpg" alt="producto3"></td>
+    <td>Descripción del producto 3</td>
+    <td>
+        <label for="talle_producto3" class="visually-hidden">Talle:</label>
+        <select id="talle_producto3">
+            <!-- Opciones desde 35 a 43 -->
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+        </select>
+    </td>
+    <td><button onclick="agregarAlCarrito('producto3')">Agregar al carrito</button></td>
+    <td class="count-controls">
+        <button onclick="modificarCantidad('producto3', -1)">-</button>
+        <span id="count_producto3" class="count">0</span>
+        <button onclick="modificarCantidad('producto3', 1)">+</button>
+    </td>
+</tr>
+</table>
+
+
+</body>
+</html>

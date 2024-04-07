@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.count {
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+td img {
+    width: 10vw;
+    height: auto;
+}
+
+/* Agregamos un poco de estilo para mejorar la presentación */
+.count-controls {
+    display: flex;
+    align-items: center;
+}
+.count-controls button {
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+.count {
+    margin: 0 10px;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
